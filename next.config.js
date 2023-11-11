@@ -1,8 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
     images: {
-        domains: ['links.papareact.com', 'image.tmdb.org'],
-    }
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'press.hulu.com',
+                port: '',
+                pathname: '/wp-content/**',
+            },
+        ],
+    },
 }
 
-module.exports = nextConfig
+

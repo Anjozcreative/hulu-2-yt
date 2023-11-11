@@ -1,19 +1,31 @@
 import Header from "@/components/Header";
-import Head from "next/head";
+import './globals.css';
+import Nav from "@/components/Nav";
+import Results from "../components/Results";
+import requests from "../util/request";
 
-export default function Home() {
+export const metadata = {
+  title: 'My Page Title'
+}
+
+export default async function Home(props) {
+  const data = await getData()
+  console.log(data);
   return (
-    <div>
-      <Head>
-        <title>Hulu 2.0</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <div className=''>
       <Header />
-
-      {/* Nav */}
-
-      {/* Result */}
+      <Nav />
+      <Results results={props} />
     </div>
   )
+}
+
+export async function getData(context) {
+  const genre = context.query.genre;
+
+  const request = await fetch(`https://www.themoviedb.org${request[genre]?.url || requests.fetchTrending.url
+    }`
+
+  )
+  return res.json()
 }
