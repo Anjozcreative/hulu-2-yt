@@ -8,23 +8,21 @@ export const metadata = {
   title: 'My Page Title'
 }
 
-export default async function Home(props) {
-  const data = await getData()
-  console.log(data);
+export default async function Home() {
+  //const data = await getData()
+  console.log('data')
   return (
     <div className=''>
       <Header />
       <Nav />
-      <Results results={props} />
+      <Results />
     </div>
   )
 }
 
-export async function getData(context) {
-  const genre = context.query.genre;
+ export async function getData() {
 
-  const request = await fetch(`https://www.themoviedb.org${request[genre]?.url || requests.fetchTrending.url
-    }`
+  const request = await fetch(`https://pixabay.com/api/?key=24999944-6be4bc65b802a1a3a3a92517d&q=flowers&image_type=photo&pretty=true`
 
   )
   return res.json()
